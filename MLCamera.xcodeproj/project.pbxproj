@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F5B67AB1EF082A900DDD0ED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9F839AC91EF068020090C904 /* AVCaptureDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+Extension.swift"; sourceTree = "<group>"; };
 		9F8E024D1EEF2EFA00CCE533 /* MLCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8E02501EEF2EFA00CCE533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +58,7 @@
 		9F8E02441EEF2EFA00CCE533 = {
 			isa = PBXGroup;
 			children = (
+				9F5B67AB1EF082A900DDD0ED /* README.md */,
 				9F8E024F1EEF2EFA00CCE533 /* MLCamera */,
 				9F8E024E1EEF2EFA00CCE533 /* Products */,
 			);
