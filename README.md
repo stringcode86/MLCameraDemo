@@ -8,9 +8,10 @@ Among the many features of the Core ML framework is the ability to classify inpu
 
 ## Blogpost
 [`stringcode.co.uk/mlcamera`](http://www.stringcode.co.uk/mlcamera)
-// Add gif
 
 ## Relevant WWDC settions
 [Introduction to Core ML](https://developer.apple.com/videos/play/wwdc2017/703/)
 [Vision framework building on Core ML](https://developer.apple.com/videos/play/wwdc2017/506/)
 
+
+![Gif](MLCamera.gif)
