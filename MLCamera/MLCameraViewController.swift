@@ -122,7 +122,7 @@ class MLCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBu
         do {
             let model = try VNCoreMLModel(for: Inceptionv3().model)
             let request = VNCoreMLRequest(model: model, completionHandler: self.handleClassification)
-            request.imageCropAndScaleOption = VNImageCropAndScaleOptionCenterCrop
+            request.imageCropAndScaleOption = VNImageCropAndScaleOption.centerCrop
             return request
         } catch {
             fatalError("can't load Vision ML model: \(error)")
