@@ -40,10 +40,10 @@ class ClassificationResultsViewController: UIViewController, UITableViewDataSour
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as! Cell
         let observation = observations[indexPath.row]
-        cell.textLabel?.text = observation.identifier
-        cell.detailTextLabel?.text = numberFormatter.string(for: observation.confidence)
+        cell.label.text = observation.identifier
+        cell.confidence.text = numberFormatter.string(for: observation.confidence)
         return cell
     }
     
