@@ -35,7 +35,8 @@ class CameraPreviewView: UIView {
     
     /// Change video orientation to always display video in correct orientation
     @objc private func deviceOrientationDidChange(_ notification: Notification) {
-        previewLayer?.connection?.videoOrientation = UIDevice.current.videoOrientation
+		guard let connection = previewLayer?.connection else { return }
+        connection.videoOrientation = orientation(videoOrientation: connection.videoOrientation, deviceOrientation: UIDevice.current.orientation)
     }
     
     private weak var previewLayer: AVCaptureVideoPreviewLayer?

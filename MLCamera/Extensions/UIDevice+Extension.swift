@@ -9,26 +9,33 @@
 import UIKit
 import AVFoundation
 
+func orientation(videoOrientation: AVCaptureVideoOrientation, deviceOrientation: UIDeviceOrientation) -> AVCaptureVideoOrientation {
+	switch deviceOrientation {
+	case .unknown:
+		return videoOrientation
+	case .portrait:
+		// Device oriented vertically, home button on the bottom
+		return .portrait
+	case .portraitUpsideDown:
+		// Device oriented vertically, home button on the top
+		return .portraitUpsideDown
+	case .landscapeLeft:
+		// Device oriented horizontally, home button on the right
+		return .landscapeRight
+	case .landscapeRight:
+		// Device oriented horizontally, home button on the left
+		return .landscapeLeft
+	case .faceUp:
+		// Device oriented flat, face up
+		return videoOrientation
+	case .faceDown:
+		// Device oriented flat, face down
+		return videoOrientation
+	}
+}
+
 extension UIDevice {
-    
-    /// Vidoe orientation for current device orientation
-    var videoOrientation: AVCaptureVideoOrientation {
-        let orientation: AVCaptureVideoOrientation
-        switch self.orientation {
-        // Device oriented vertically, home button on the bottom
-        case .portrait: orientation = .portrait
-        // Device oriented vertically, home button on the top
-        case .portraitUpsideDown: orientation = .portraitUpsideDown
-        // Device oriented horizontally, home button on the right
-        case .landscapeLeft: orientation = .landscapeRight
-        // Device oriented horizontally, home button on the left
-        case .landscapeRight: orientation = .landscapeLeft
-        // Device oriented flat, face up, Device oriented flat, face down
-        default: orientation = .portrait
-        }
-        return orientation
-    }
-    
+
     /// Subscribes target to default NotificationCenter .UIDeviceOrientationDidChange
     class func subscribeToDeviceOrientationNotifications(_ target: AnyObject, selector: Selector) {
         let center = NotificationCenter.default

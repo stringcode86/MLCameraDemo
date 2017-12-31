@@ -89,7 +89,7 @@ class MLCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBu
     @objc private func deviceOrientationDidChange(_ notification: Notification) {
         session?.outputs.forEach {
             $0.connections.forEach {
-                $0.videoOrientation = UIDevice.current.videoOrientation
+                $0.videoOrientation  = orientation(videoOrientation: $0.videoOrientation, deviceOrientation: UIDevice.current.orientation)
             }
         }
     }
