@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350C400C1FD32067007F3FFD /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C400B1FD32067007F3FFD /* Cell.swift */; };
 		9F0F18E11EF075FC00E1475E /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9FEDE4F51EF000270075BC15 /* Inceptionv3.mlmodel */; };
 		9F839ACA1EF068020090C904 /* AVCaptureDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F839AC91EF068020090C904 /* AVCaptureDevice+Extension.swift */; };
 		9F8E02511EEF2EFA00CCE533 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E02501EEF2EFA00CCE533 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		350C400B1FD32067007F3FFD /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		9F5B67AB1EF082A900DDD0ED /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9F839AC91EF068020090C904 /* AVCaptureDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+Extension.swift"; sourceTree = "<group>"; };
 		9F8E024D1EEF2EFA00CCE533 /* MLCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 			children = (
 				9F8E02501EEF2EFA00CCE533 /* AppDelegate.swift */,
 				9F8E02621EEF2FE200CCE533 /* CameraPreviewView.swift */,
+				350C400B1FD32067007F3FFD /* Cell.swift */,
 				9F8E02521EEF2EFA00CCE533 /* MLCameraViewController.swift */,
 				9FBCF33F1EF031E000AF6698 /* ClassificationResultsViewController.swift */,
 				9F839ACB1EF0680F0090C904 /* Extensions */,
@@ -160,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				350C400C1FD32067007F3FFD /* Cell.swift in Sources */,
 				9F8E02531EEF2EFA00CCE533 /* MLCameraViewController.swift in Sources */,
 				9F8E02631EEF2FE200CCE533 /* CameraPreviewView.swift in Sources */,
 				9FBCF3401EF031E000AF6698 /* ClassificationResultsViewController.swift in Sources */,
@@ -299,7 +303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JXRDDKQ33V;
+                DEVELOPMENT_TEAM = JXRDDKQ33V;
 				INFOPLIST_FILE = MLCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.stringcode.MLCamera;
@@ -313,7 +317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JXRDDKQ33V;
+                DEVELOPMENT_TEAM = JXRDDKQ33V;
 				INFOPLIST_FILE = MLCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.stringcode.MLCamera;
