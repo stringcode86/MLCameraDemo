@@ -16,8 +16,12 @@ import CoreML
 /// model. Device rotation handled by setting orientation on AVCaptureConnection (not ideal).
 /// See: deviceOrientationDidChange(_:) comment.
 class MLCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
-    
-    /// Displays video preview via AVCaptureVideoPreviewLayer
+
+	@IBOutlet weak var stackView: UIStackView!
+	@IBOutlet weak var loadingLabel: UILabel!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+	
+	/// Displays video preview via AVCaptureVideoPreviewLayer
     @IBOutlet weak var cameraPreview: CameraPreviewView!
     /// Embeded view controller that displays classifications result
     weak var clasificationResultsVC: ClassificationResultsViewController?
@@ -120,9 +124,16 @@ class MLCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBu
     lazy var classificationRequest: VNCoreMLRequest = {
         // Load the ML model through its generated class and create a Vision request for it.
         do {
+			DispatchQueue.main.async {
+				self.activityIndicator.startAnimating()
+			}
             let model = try VNCoreMLModel(for: Inceptionv3().model)
             let request = VNCoreMLRequest(model: model, completionHandler: self.handleClassification)
             request.imageCropAndScaleOption = VNImageCropAndScaleOption.centerCrop
+			DispatchQueue.main.async {
+				self.activityIndicator.stopAnimating()
+				self.stackView.removeFromSuperview()
+			}
             return request
         } catch {
             fatalError("can't load Vision ML model: \(error)")

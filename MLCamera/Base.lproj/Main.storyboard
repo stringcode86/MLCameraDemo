@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,8 +25,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IUT-O9-k7O">
+                                <rect key="frame" x="114" y="323" width="147" height="21"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DRx-gH-ZsR">
+                                        <rect key="frame" x="0.0" y="0.5" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading model..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZR-g0-3fK">
+                                        <rect key="frame" x="20" y="0.5" width="127" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Enc-MY-fzN">
-                                <rect key="frame" x="0.0" y="533.5" width="375" height="133.5"/>
+                                <rect key="frame" x="0.0" y="533" width="375" height="134"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="414" id="yrJ-wZ-eIc"/>
                                 </constraints>
@@ -40,15 +54,21 @@
                             <constraint firstItem="yhJ-eS-1Ub" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BJC-wR-L3O"/>
                             <constraint firstItem="Enc-MY-fzN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FQS-G8-WIP"/>
                             <constraint firstItem="yhJ-eS-1Ub" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QYp-py-ZFf"/>
+                            <constraint firstItem="IUT-O9-k7O" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qci-05-RuB"/>
                             <constraint firstItem="Enc-MY-fzN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="Xum-Mb-Fwb"/>
                             <constraint firstItem="Enc-MY-fzN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" priority="750" id="aoL-ej-zhz"/>
+                            <constraint firstItem="IUT-O9-k7O" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="i20-8M-QMD"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Enc-MY-fzN" secondAttribute="bottom" id="koh-dI-4mw"/>
+                            <constraint firstItem="IUT-O9-k7O" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="303" id="lz2-g4-ep2"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yhJ-eS-1Ub" secondAttribute="bottom" id="rec-3R-fpn"/>
                             <constraint firstAttribute="trailing" secondItem="Enc-MY-fzN" secondAttribute="trailing" priority="750" id="uRC-Fc-b4X"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="DRx-gH-ZsR" id="qpH-hh-QZc"/>
                         <outlet property="cameraPreview" destination="yhJ-eS-1Ub" id="nCD-0a-RIW"/>
+                        <outlet property="loadingLabel" destination="sZR-g0-3fK" id="naP-Fz-2zV"/>
+                        <outlet property="stackView" destination="IUT-O9-k7O" id="vs5-Pe-ehQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -60,17 +80,17 @@
             <objects>
                 <viewController id="c6b-Se-s6c" customClass="ClassificationResultsViewController" customModule="MLCamera" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="ddS-2D-mcZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JKf-pV-nGR">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yj6-2d-aHo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="LXK-Fn-kH2">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qRN-Ec-NlH">
